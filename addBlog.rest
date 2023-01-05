@@ -1,0 +1,12 @@
+POST http://localhost:3003/api/blogs
+Content-Type: application/json
+
+{
+  "title": "I am building a react app",
+  "author": "Mohammed STITANE",
+  "url": "http://localhost:3003/api/blogs",
+  "likes": 100
+}
+###
+GET http://localhost:3003/api/blogs
+Accept: application/json

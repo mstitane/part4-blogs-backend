@@ -1,0 +1,38 @@
+{
+  "name": "part4-blogs-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mstitane/part4-blogs-backend.git"
+  },
+  "keywords": [
+    "nodejs",
+    "express"
+  ],
+  "author": "mohammed stitane",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mstitane/part4-blogs-backend/issues"
+  },
+  "homepage": "https://github.com/mstitane/part4-blogs-backend#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mongodb": "^4.13.0",
+    "mongoose": "^6.8.2",
+    "mongos": "^0.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.2.0",
+    "nodemon": "^2.0.20"
+  }
+}
