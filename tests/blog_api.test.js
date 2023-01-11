@@ -2,6 +2,7 @@ const mongoose = require('mongoose')
 const supertest = require('supertest')
 const app = require('../app')
 const Blog = require('../models/Blog')
+const { ObjectId } = require('mongodb')
 const api = supertest(app)
 
 const initialBlogs = [
@@ -110,6 +111,15 @@ test('if the title or url properties are missing, it will return 400', async () 
         .send(newBlogWithoutUrl)
         .expect(400)
 
+})
+
+describe('deleting of blog', function () {
+    const blogToDelete = new Blog(initialBlogs[0])
+    test('succeeds with status code 204 if id is valid', async () => {
+        await api
+            .delete(`/api/blogs/${blogToDelete._id}`)
+            .expect(204)
+    })
 })
 
 afterAll(() => {
