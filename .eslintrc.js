@@ -3,7 +3,8 @@ module.exports = {
         'browser': true,
         'es6': true,
         'node': true,
-        'commonjs': true
+        'commonjs': true,
+        'jest': true,
     },
     'extends': 'eslint:recommended',
     'overrides': [],
@@ -36,6 +37,6 @@ module.exports = {
             'error', { 'before': true, 'after': true }
         ],
         'no-console': 0,
-        'arrow-parens ':0
+        'arrow-parens ': 0
     }
 }
