@@ -1,0 +1,18 @@
+## login to get a token and use it in the next api calls
+###
+POST http://localhost:3003/api/login
+Content-Type: application/json
+
+{
+  "username": "mstitane",
+  "password": "123"
+}
+
+### delete a blog
+DELETE http://localhost:3003/api/blogs/63c17b35f8b946f913f0206b
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1zdGl0YW5lIiwiaWQiOiI2M2MxMmNmZjAyNTgzMzgxYWY2YTU3NzIiLCJpYXQiOjE2NzM2MjgzNDJ9.ba9-APWyZxLaUUfF8cK373_lJ4eNel21XIlvcUKxiuY
+
+###
+GET http://localhost:3003/api/blogs
+Accept: application/json
+
