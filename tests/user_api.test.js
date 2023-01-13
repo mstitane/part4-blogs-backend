@@ -18,6 +18,7 @@ describe('when there is initially one user in db', () => {
 
     test('creation succeeds with a fresh username', async () => {
         const newUser = {
+            id: '63c0328b00c129066760fe2a',
             username: 'mstitane',
             name: 'Mohammed STITANE',
             password: 'MST@123',
