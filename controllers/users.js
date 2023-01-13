@@ -19,7 +19,7 @@ usersRouter.post('/', async (request, response) => {
     const user = new User({
         username,
         name,
-        passwordHash,
+        password: passwordHash,
     })
 
     try {
