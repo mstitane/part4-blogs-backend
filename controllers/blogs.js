@@ -55,13 +55,23 @@ blogRouter.delete('/:id', async (request, response) => {
 })
 
 blogRouter.put('/:id', async (request, response) => {
-    const body = request.body
+    let decodedToken
+    try {
+        decodedToken = jwt.verify(request.token, process.env.SECRET)
+    } catch (ex) {
+        return response.status(401).json({ error: 'token missing or invalid' })
+    }
+    const blog = await Blog.findById(request.params.id)
 
-    const blog = {
+    if (!blog.user.equals(decodedToken.id))
+        return response.status(401).json({ error: 'You can update only your own blogs' })
+
+    const body = request.body
+    const newBlog = {
         likes: body.likes,
     }
 
-    const updatedBlog = await Blog.findByIdAndUpdate(request.params.id, blog, { new: true })
+    const updatedBlog = await Blog.findByIdAndUpdate(request.params.id, newBlog, { new: true })
     response.status(200).json(updatedBlog)
 })
 

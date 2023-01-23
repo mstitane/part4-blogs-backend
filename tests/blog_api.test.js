@@ -192,10 +192,14 @@ describe('when there is initially some blogs saved', () => {
     describe('updating a blog', function () {
         test('succeeds with status code 204 if id is valid', async () => {
             const initialBlog = new Blog(initialBlogs[0])
-
+            let auth = await api
+                .post('/api/login')
+                .send({ username: 'root', password: 'sekret' })
+                .expect(200)
             const likes = 20
             const updated = await api.put(`/api/blogs/${initialBlog._id}`)
                 .send({ likes: likes })
+                .set('Authorization', `bearer ${auth.body.token}`)
                 .expect(200)
 
             expect(updated.body.likes).toBe(likes)
